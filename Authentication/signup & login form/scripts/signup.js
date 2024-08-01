@@ -5,37 +5,17 @@ document.querySelector("#signup-Form").addEventListener("submit", async(event) =
   try {
     event.preventDefault();
     // console.log('click', event.target.children[0].value);
-    const email = event.target.children[0].value;
-    const password = event.target.children[3].value;
+    const userName = event.target.children[0].value;
+    const email =  event.target.children[3].value;
+    const password = event.target.children[6].value;
     // console.log('email', email, 'password', password);
      
     const result = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(result);
+
+    window.location = '../pages/login.html'
+
 } catch(err){
-   console.log('err', err,message);
+   console.log('err', err.message);
 }
    
 })
-
-
-
-
-
-
-
-
-
-  // .then((userCredential) => {
-  //   // Signed up
-  //   const user = userCredential.user;
-  //   console.log('user', user);
-  //   // ...
-  // })
-  // .catch((error) => {
-  //   const errorCode = error.code;
-  //   console.log('errorCode', errorCode);
-  //   const errorMessage = error.message;
-  //   console.log('errorMessage', errorMessage);
-
-  //   // ..
-  // });
