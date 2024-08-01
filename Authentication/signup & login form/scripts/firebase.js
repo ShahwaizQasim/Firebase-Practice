@@ -8,6 +8,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  // sendEmailVerification,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -22,10 +25,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// console.log(app);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth();
+
+const googleProvider = new GoogleAuthProvider();
 
 export {
   auth,
@@ -33,4 +37,8 @@ export {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  // sendEmailVerification,
+  googleProvider,
+  signInWithPopup,
+  GoogleAuthProvider
 };
