@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Authentication</title>
+  </head>
+  <body>
+    <h2>Phone Athentication</h2>
+      <label
+        >Phone Number<br />
+        <input
+          type="number"
+          placeholder="Enter your number"
+          id="number"
+        /><br /><br />
+      </label>
+      <button id="phoneAuth">Send OTP</button>
+      <br /><br />
+      <label>
+        Enter OTP <br />
+        <input type="text" placeholder="Enter Your Otp" id="Otp" /><br /><br />
+      </label>
+      <button id="verifyNumber">Verify Number</button>
+    <br />
+
+    <div id="recaptcha"></div>
+
+    <script type="module" src="../scripts/phoneAuth.js"></script>
+  </body>
+</html>

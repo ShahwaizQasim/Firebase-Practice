@@ -11,6 +11,8 @@ import {
   // sendEmailVerification,
   GoogleAuthProvider,
   signInWithPopup,
+  RecaptchaVerifier,
+  signInWithPhoneNumber,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -40,5 +42,7 @@ export {
   // sendEmailVerification,
   googleProvider,
   signInWithPopup,
-  GoogleAuthProvider
+  GoogleAuthProvider,
+  RecaptchaVerifier,
+  signInWithPhoneNumber
 };

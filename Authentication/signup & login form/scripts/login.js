@@ -39,6 +39,9 @@ form.addEventListener("submit", async (event) => {
 //   }
 // });
 
+
+/* Login with Google */
+
 const loginGoogle = document.querySelector("#loginGoogle");
 
 loginGoogle.addEventListener("click", () => {
