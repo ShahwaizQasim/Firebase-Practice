@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.allProducts{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 20px;
+}
+.allProducts > div{
+    height: 200px;
+    width: 250px;
+    border: 2px solid black;
+    /* padding: 10px; */
+    margin-top: 20px;
+}
+.allProducts > div > h3{
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-align: center;
+    padding-top: 10px;
+}
+.allProducts > div > p{
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 10px;
+}
