@@ -1,4 +1,12 @@
-import { db, collection, addDoc, getDocs } from "./firebase.js";
+import {
+  db,
+  collection,
+  addDoc,
+  // getDocs,
+  serverTimestamp,
+  doc,
+  onSnapshot,
+} from "./firebase.js";
 
 const form = document.getElementById("product-Form");
 const ProductName = document.getElementById("Product_Name");
@@ -16,6 +24,7 @@ form.addEventListener("submit", async (event) => {
     Product_Name: ProductName.value,
     Product_Price: ProductPrice.value,
     Product_Detail: ProductDetail.value,
+    createdAt: serverTimestamp(),
   };
   try {
     const docRef = await addDoc(myCollectionRef, myProduct);
@@ -26,16 +35,50 @@ form.addEventListener("submit", async (event) => {
 });
 
 
-const querySnapshot = await getDocs(myCollectionRef);
+/* Data Show screen but however, with page Referesh */
 
-querySnapshot.forEach((doc) => {
-    const product = doc.data();
-    console.log(product);
+// const querySnapshot = await getDocs(myCollectionRef);
+// querySnapshot.forEach((doc) => {
+//   const product = doc.data();
+
+//   const date = product.createdAt?.toDate();
+
+//   allProducts.innerHTML += `<div>
+//        <h3>${product.Product_Name}</h3>
+//        <span>${
+//          date
+//            ? dateFns.formatDistance(date, new Date(), {
+//                addSuffix: true,
+//              })
+//            : ""
+//        }</span>
+
+//        <p>${product.Product_Price}</p>
+//        <p>${product.Product_Detail}</p>
+//     </div>`;
+// });
+
+
+/* Real-Time Data show screen without page Referesh */ 
+onSnapshot(myCollectionRef, (doc) => {
+  console.log("onSnapshot", doc);
+
+  allProducts.innerHTML = "";
+
+  doc.forEach((eachDoc) => {
+    // console.log('eachDoc',eachDoc);
+    const product = eachDoc.data();
+    // console.log("product", product);
+
+    // const date = product.createdAt?.toDate();
+    // const dateToTime = date
+    //   ? dateFns.formatDistance(date, new Date(), { addSuffix: true })     // optional work
+    //   : "";
 
     allProducts.innerHTML += `<div>
-       <h3>${product.Product_Name}</h3>
-       <p>${product.Product_Price}</p>
-       <p>${product.Product_Detail}</p>
-    </div>`;
-    
+            <h3>${product.Product_Name}</h3>
+           <p>${product.Product_Price}</p>
+           <p>${product.Product_Detail}</p>
+        </div>`;
+  });
 });

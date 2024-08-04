@@ -1,6 +1,6 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 
-  import { getFirestore,collection, addDoc,  getDocs } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+  import { getFirestore,collection, addDoc,  getDocs, serverTimestamp, doc, onSnapshot  } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -20,5 +20,8 @@
     db,
     collection,
     addDoc,
-    getDocs
+    getDocs,
+    serverTimestamp,
+    onSnapshot,
+    doc
   }
