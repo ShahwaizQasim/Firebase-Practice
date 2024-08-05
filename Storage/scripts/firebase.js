@@ -1,9 +1,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 
 import {
+  getFirestore,
+  collection,
+  addDoc,
+  onSnapshot,
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+import {
   getStorage,
   ref,
-  uploadBytes ,
+  uploadBytes,
   getDownloadURL,
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
 
@@ -20,8 +27,18 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+const db = getFirestore(app);
+
 // Get a reference to the storage service, which is used to create references in your storage bucket
 const storage = getStorage(app);
 
-
-export { storage, ref , uploadBytes, getDownloadURL };
+export {
+  storage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  db,
+  collection,
+  addDoc,
+  onSnapshot,
+};
